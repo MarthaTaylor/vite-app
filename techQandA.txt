@@ -1,0 +1,33 @@
+Questions:
+
+target: "ESNext" and moduleResolution: "Node":  You should not use target: "ESNext" and moduleResolution: "Node" together in a Vite project.  moduleResolution: "bundler" is the correct setting for Vite.  Vite uses its own module resolution algorithm, and using Node would conflict with that.  Your current setup with moduleResolution: "bundler" and module: "ESNext" is the recommended approach for Vite.
+
+Comments and Explanations: I've added comments throughout the code to explain each setting.
+
+Tech Interview Questions and Answers:
+
+Q: Why are you using moduleResolution: "bundler" in your tsconfig.json?
+
+A: I'm using moduleResolution: "bundler" because this project uses Vite as a bundler.  Vite has its own module resolution mechanism, and setting moduleResolution to bundler ensures that TypeScript's module resolution aligns with Vite's, preventing errors and ensuring correct behavior.
+
+Q: What is the purpose of esModuleInterop: true?
+
+A: esModuleInterop improves compatibility between CommonJS modules (which are often used in Node.js libraries) and ES modules (which are the modern standard and are used by Vite).  It handles the differences in how these module systems export and import values, preventing runtime errors.
+
+Q: Why is noEmit: true set in your base configuration?
+
+A: noEmit: true is set because we are using Vite to handle the bundling and transformation of our code, not the TypeScript compiler directly.  Vite is much faster at this task.  Setting noEmit prevents TypeScript from generating any output files, improving build performance.
+
+Q: What is the benefit of using a tsconfig.base.json file and extending it in other configurations?
+
+A: Using a base configuration file promotes consistency and reduces duplication.  Common settings can be defined in the base file, and then project-specific settings can be added in separate configuration files.  This makes it easier to manage multiple projects or different build targets (like the application and Node.js scripts in this case).
+
+Q: Why do you have separate tsconfig.app.json and tsconfig.node.json files?
+
+A:  We have separate configuration files because the application code and the Node.js scripts have different requirements.  For example, they target different environments (browser vs. Node.js) and might use different libraries.  Having separate configurations allows us to customize the compilation process for each target.
+
+Q: What does the types: ["vitest/globals"] line in your tsconfig.app.json do?
+
+A: This line tells TypeScript to include the type definitions for Vitest's global functions (like describe, it, expect, etc.).  This allows you to use these functions in your tests without getting type errors or needing jest/types.  It's essential for proper type checking in your Vitest tests.
+
+Understanding these configurations and their implications, you'll be well-prepared for technical interviews and demonstrate a strong grasp of TypeScript and modern JavaScript development practices.

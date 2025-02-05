@@ -1,0 +1,60 @@
+// tsconfig.base.json
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowJs": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "module": "ESNext", // as Option 'bundler' can only be used when 'module' is set to 'preserve' or to 'es2015' or later.ts
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true
+    }
+  }
+
+//   {
+//     "compilerOptions": {
+//       "esModuleInterop": true, // Enables interoperability between CommonJS and ES modules.  Important for using libraries that might use different module systems.
+//       "skipLibCheck": true, // Skips type checking of declaration files (.d.ts).  Speeds up compilation, especially in larger projects.  Use with caution; might mask some type errors in third-party libraries.
+//       "forceConsistentCasingInFileNames": true, // Enforces consistent casing for file names (e.g., `component.tsx` vs. `Component.tsx`).  Helps prevent issues across different operating systems.
+//       "allowJs": true, // Allows compiling JavaScript files alongside TypeScript files. Useful for gradual migration to TypeScript or when using libraries that are still in JavaScript.
+
+//       /* Bundler mode */
+//       "moduleResolution": "bundler", //  Crucially important for Vite. Tells TypeScript to use the bundler's module resolution algorithm (like Vite's).  This is the correct setting for Vite projects. It aligns Typescript with the bundler.
+//       "allowImportingTsExtensions": true, // Allows importing TypeScript files without specifying the extension (e.g., `import './component'` instead of `import './component.ts'`). Improves the developer experience.
+//       "isolatedModules": true, // Ensures that each module can be compiled independently. This is essential for faster and more reliable builds, especially with bundlers.
+//       "moduleDetection": "force", //  Forces module detection to avoid ambiguities.
+//       "noEmit": true, // Prevents the compiler from emitting JavaScript files.  This is because Vite handles the bundling and transformation.  Important for performance in a Vite project.
+//       "jsx": "react-jsx", // Tells the compiler to use the new JSX transform for React.  This is the recommended way to use JSX with React 17 and later.
+//       "module": "ESNext", // Specifies the module format to use.  `ESNext` is the most modern option and is compatible with bundlers like Vite.
+
+//       /* Linting */
+//       "strict": true, // Enables all strict type checking options.  Highly recommended for catching potential errors.
+//       "noUnusedLocals": true, // Reports errors on unused local variables. Helps keep code clean.
+//       "noUnusedParameters": true, // Reports errors on unused function parameters.  Also helps keep code clean.
+//       "noFallthroughCasesInSwitch": true, // Prevents accidental fallthrough in switch statements.  Improves code safety.
+//       "noUncheckedSideEffectImports": true // Ensures imports have side effects. Helps with consistency and code correctness.
+//     }
+//   }
+
+    // "target": "ESNext",
+    // "moduleResolution": "Node",
+
+
+//   Since both tsconfig.app.json (frontend) and tsconfig.node.json (backend) share common TypeScript rules, it's best to extract shared configurations into a tsconfig.base.json.
+
+//   ✅ This avoids duplication and ensures consistency across the project.
+
+//   📌 Create a new tsconfig.base.json:
