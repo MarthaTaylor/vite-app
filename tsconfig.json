@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vitest/globals"],  // ✅ This enables Vitest's test functions
+    "allowJs": true
+  }
+}
+
+// The "types": ["vitest/globals"] setting ensures TypeScript recognizes test, describe, and expect globally without needing @types/jest or @types/mocha.
