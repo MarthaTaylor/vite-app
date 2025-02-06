@@ -1,20 +1,13 @@
 // src/context/GifContext.tsx
 import { createContext, useReducer, ReactNode } from 'react';
-import { Gif } from '../types/gif';
+import { GifContextState, GifContextAction  } from '../types/context';
 
-interface State {
-  savedGifs: Gif[];
-}
 
-type Action =
-  | { type: 'SAVE_GIF'; payload: Gif }
-  | { type: 'REMOVE_GIF'; payload: string };
-
-const initialState: State = {
+const initialState: GifContextState = {
   savedGifs: JSON.parse(localStorage.getItem('savedGifs') || '[]'),
 };
 
-const gifReducer = (state: State, action: Action): State => {
+const gifReducer = (state: GifContextState, action: GifContextAction): GifContextState => {
   switch (action.type) {
     case 'SAVE_GIF':
       const updatedSave = [...state.savedGifs, action.payload];
@@ -30,8 +23,8 @@ const gifReducer = (state: State, action: Action): State => {
 };
 
 export const GifContext = createContext<{
-  state: State;
-  dispatch: React.Dispatch<Action>;
+  state: GifContextState;
+  dispatch: React.Dispatch<GifContextAction>;
 }>({ state: initialState, dispatch: () => null });
 
 export const GifProvider = ({ children }: { children: ReactNode }) => {
