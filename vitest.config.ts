@@ -8,10 +8,12 @@ export default defineConfig({
       environment: 'jsdom', // ✅ Use jsdom for DOM testing (for React components)
       globals: true,        // ✅ Enable globals like `describe`, `it`, `expect` (like Jest)
       setupFiles: ['./src/test/setup.ts'], // ✅ Optional: For global test setup
-      include: ["__tests__/**/*.test.tsx"] // ✅ Ensures Vitest runs tests from the `tests/` folder
+      include: ["__tests__/**/*.test.ts*"] // ✅ Ensures Vitest runs tests from the `__tests__/` folder
     },
   });
+  // If you're using Vitest, you only need to configure the test files in the vitest.config.ts for your testing environment. You don't need to include the __tests__ directory in the tsconfig.app.json file unless you specifically need TypeScript to treat the test files as part of the application (which is uncommon for testing purposes).
 
+  // If you want TypeScript to type-check your test files and include them in the overall compilation, you would need to keep the "include": ["__tests__/**/*"] in your tsconfig.app.json.
 
 // Vite and Vitest integrate (or rather, don't fully integrate in the way you might initially expect).
 

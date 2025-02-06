@@ -7,11 +7,17 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
   },
-  "include": ["src/**/*", "__tests__/components/HelloWorld.test.tsx"],
-  "types": ["vitest/globals"], // Enables Vitest's test functions preferred for the front end not backend node
+  "include": ["src/**/*", "__tests__/**/*.test.ts*"],
+  "types": ["vitest/globals"] // Enables Vitest's test functions preferred for the front end not backend node
 }
+// If you're using Vitest, you only need to configure the test files in the vitest.config.ts for your testing environment. You don't need to include the __tests__ directory in the tsconfig.app.json file unless you specifically need TypeScript to treat the test files as part of the application (which is uncommon for testing purposes).
 
+// If you want TypeScript to type-check your test files and include them in the overall compilation, you would need to keep the "include": ["__tests__/**/*"] in your tsconfig.app.json.
 // {
+//   "include": ["src/**/*", "__tests__/**/*"]
+// }
+// This is telling TypeScript to look for type definitions and files inside src/ and __tests__/ during the compilation process. This is especially important if you are using TypeScript for building the project, not just running tests.
+// // {
 //   "extends": "./tsconfig.base.json", // Inherits settings from the base configuration.
 //   "compilerOptions": {
 //     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo", // Path to the TypeScript build information file.  Used for incremental builds to speed up compilation.

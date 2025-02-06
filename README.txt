@@ -14,3 +14,14 @@ Which is better?
 
 Where Should the TypeScript Configuration Go?
 Since we are using a modular TypeScript config setup (tsconfig.app.json and tsconfig.node.json), the "compilerOptions" settings should be distributed logically:
+
+TESTING APIS
+npm install -D vitest msw axios-mock-adapter
+
+CMDS RAN TODAY
+ npm i --save-dev @types/jest allows test be found
+ npm test
+ npm run test:watch
+ clear
+ npm run dev
+ npm install -D vitest msw axios-mock-adapter to test apis
