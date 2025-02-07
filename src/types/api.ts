@@ -8,4 +8,9 @@ export interface ApiResponse {
       count: number;
       offset: number;
     };
+    meta: {
+      status: number;
+      msg: string;
+      response_id: string;
+    };
   }
